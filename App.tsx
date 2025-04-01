@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 function App(): React.JSX.Element {
   const [input, setInput] = useState<string>('');
@@ -17,6 +10,10 @@ function App(): React.JSX.Element {
       setTodo(prev => [...prev, input]);
       setInput('');
     }
+  };
+
+  const handleDelete = (index: number) => {
+    setTodo(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -47,7 +44,9 @@ function App(): React.JSX.Element {
           {todo.map((item, index) => (
             <View key={index} style={styles.todoItem}>
               <Text style={styles.todoText}>{item}</Text>
-              
+              <TouchableOpacity onPress={() => handleDelete(index)} style={styles.deleteButton}>
+                <Text style={styles.deleteButtonText}>✖</Text>
+              </TouchableOpacity>
             </View>
           ))}
         </View>
@@ -121,11 +120,25 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 5,
     elevation: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   todoText: {
     fontSize: 18,
     color: '#ffffff',
     fontWeight: '500',
+  },
+  deleteButton: {
+    backgroundColor: '#ff4444',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+  },
+  deleteButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
 });
 
