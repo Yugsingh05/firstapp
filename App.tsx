@@ -1,83 +1,120 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  ToastAndroid, // ✅ Import Toast for Android
+} from 'react-native';
 
 function App(): React.JSX.Element {
   const [input, setInput] = useState<string>('');
   const [todo, setTodo] = useState<string[]>([]);
+  const [isCompleted, setIsCompleted] = useState<number[]>([]);
+
+  const showToast = (message: string) => {
+    ToastAndroid.show(message, ToastAndroid.SHORT); // 🔥 Show toast notification
+  };
 
   const handleTodo = () => {
     if (input.trim()) {
       setTodo(prev => [...prev, input]);
       setInput('');
+      showToast('Task Added ✅'); // 🔥 Show toast
     }
   };
 
   const handleDelete = (index: number) => {
     setTodo(prev => prev.filter((_, i) => i !== index));
+    setIsCompleted(prev => prev.filter(i => i !== index));
+    showToast('Task Deleted ❌'); // 🔥 Show toast
+  };
+
+  const handleComplete = (index: number) => {
+    setIsCompleted(prev => [...prev, index]);
+    showToast('Task Completed 🎉'); // 🔥 Show toast
   };
 
   return (
-    <ScrollView nestedScrollEnabled={true} style={styles.appContainer}>
-      <View style={styles.container}>
-        <Text style={styles.head}>🚀 Todo App</Text>
+    <View style={styles.appContainer}>
+      <Text style={styles.head}>🚀 Todo App</Text>
 
-        {/* Input and Add Button */}
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Enter your todo.."
-            placeholderTextColor="#aaa"
-            style={styles.input}
-            value={input}
-            onChangeText={setInput}
-          />
-          <TouchableOpacity
-            disabled={!input.trim()}
-            onPress={handleTodo}
-            style={[styles.button, !input.trim() && styles.disabledButton]}
-            activeOpacity={0.8}>
-            <Text style={styles.buttonText}>ADD</Text>
-          </TouchableOpacity>
-        </View>
+      {/* Input and Add Button */}
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Enter your task..."
+          placeholderTextColor="#aaa"
+          style={styles.input}
+          value={input}
+          onChangeText={setInput}
+        />
+        <TouchableOpacity
+          disabled={!input.trim()}
+          onPress={handleTodo}
+          style={[styles.button, !input.trim() && styles.disabledButton]}
+          activeOpacity={0.8}>
+          <Text style={styles.buttonText}>ADD</Text>
+        </TouchableOpacity>
+      </View>
 
-        {/* Todo List */}
-        <View style={styles.todoList}>
-          {todo.map((item, index) => (
-            <View key={index} style={styles.todoItem}>
-              <Text style={styles.todoText}>{item}</Text>
-              <TouchableOpacity onPress={() => handleDelete(index)} style={styles.deleteButton}>
+      {/* Scrollable Todo List */}
+      <ScrollView contentContainerStyle={styles.todoList}>
+        {todo.map((item, index) => (
+          <View
+            key={index}
+            style={[
+              styles.todoItem,
+              isCompleted.includes(index) && styles.completedTask,
+            ]}>
+            <Text style={styles.todoText} numberOfLines={2}>
+              {item}
+            </Text>
+
+            <View style={styles.buttonContainer}>
+              {!isCompleted.includes(index) && (
+                <TouchableOpacity
+                  onPress={() => handleComplete(index)}
+                  style={styles.completeButton}>
+                  <Text style={styles.completeButtonText}>✔</Text>
+                </TouchableOpacity>
+              )}
+
+              <TouchableOpacity
+                onPress={() => handleDelete(index)}
+                style={styles.deleteButton}>
                 <Text style={styles.deleteButtonText}>✖</Text>
               </TouchableOpacity>
             </View>
-          ))}
-        </View>
-      </View>
-    </ScrollView>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   appContainer: {
-    backgroundColor: '#121212', // Dark background
     flex: 1,
-  },
-  container: {
-    padding: 20,
+    backgroundColor: '#121212',
+    paddingHorizontal: 20,
     paddingTop: 50,
   },
   head: {
-    fontSize: 24,
-    textAlign: 'center',
+    fontSize: 28,
     fontWeight: 'bold',
+    textAlign: 'center',
     color: '#ffffff',
     marginBottom: 20,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     backgroundColor: '#1e1e1e',
-    padding: 10,
+    padding: 12,
     borderRadius: 12,
+    marginBottom: 15,
   },
   input: {
     flex: 1,
@@ -100,7 +137,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   disabledButton: {
-    backgroundColor: '#555', // Disabled button color
+    backgroundColor: '#555',
   },
   buttonText: {
     fontSize: 16,
@@ -108,26 +145,42 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   todoList: {
-    marginTop: 20,
+    paddingBottom: 20,
   },
   todoItem: {
     backgroundColor: '#333',
     padding: 15,
     borderRadius: 12,
     marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    elevation: 3,
   },
   todoText: {
-    fontSize: 18,
+    flex: 1,
+    fontSize: 16,
     color: '#ffffff',
     fontWeight: '500',
+  },
+  completedTask: {
+    backgroundColor: '#1f7a1f',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  completeButton: {
+    backgroundColor: 'green',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    marginRight: 10,
+  },
+  completeButtonText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
   },
   deleteButton: {
     backgroundColor: '#ff4444',
