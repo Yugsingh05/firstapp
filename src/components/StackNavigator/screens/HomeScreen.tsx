@@ -13,6 +13,7 @@ export const HomeScreen:React.FC = () => {
 <View style={styles.container}>
     <Text style={styles.text}>HomeScreen</Text>
     <Button title='Go to RouterDemo' onPress={() => navigate.navigate('StackDemo')}/>
+      <Button title='Go to TabDemo' onPress={() => navigate.navigate('TabDemo')}/>
 </View>
   )
 }
