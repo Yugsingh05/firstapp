@@ -7,7 +7,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 // import { Text, View } from 'react-native';
 // import Todo from './src/components/Todo';
-import { StackNavigator } from './src/components/StackNavigator/main';
+// import { StackNavigator } from './src/components/StackNavigator/main';
+import FlatListDemo from './src/components/FLatList/main';
 
 
 function App(): React.JSX.Element {
@@ -15,7 +16,7 @@ function App(): React.JSX.Element {
 
   return (
  <NavigationContainer>
-   <StackNavigator/>
+  <FlatListDemo/>
  </NavigationContainer>
   );
 }
