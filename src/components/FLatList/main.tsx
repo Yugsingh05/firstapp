@@ -4,12 +4,14 @@ import FlatListHome from './FlatListHome'
 import { FlatListDetails } from './FlatListDetails'
 import SectionListDemo from '../SectionList/main'
 import PressableDemo from '../Pressable'
+import ModalDemo from '../Modal'
 
 export type FlatListNavigationProps = {
     Home : undefined,
     Details : undefined,
     SectionList : undefined,
-    PressableDemo : undefined
+    PressableDemo : undefined,
+    ModalDemo : undefined
 }
 
 const Stack = createStackNavigator<FlatListNavigationProps>();
@@ -21,6 +23,7 @@ const FlatListDemo = () => {
         <Stack.Screen name="Details" component={FlatListDetails} />
         <Stack.Screen name="SectionList" component={SectionListDemo} /> 
         <Stack.Screen name="PressableDemo" component={PressableDemo} />
+        <Stack.Screen name="ModalDemo" component={ModalDemo} />
     </Stack.Navigator>
   )
 }

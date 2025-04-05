@@ -10,6 +10,7 @@ const Pages = [
   { id: '1', title: 'Details', path: 'Details' },
   { id: '2', title: 'Section List', path: 'SectionList' },
   { id: '3', title: 'Pressable Demo', path: 'PressableDemo' },
+  { id: '4', title: 'Modal Demo', path: 'ModalDemo' },
 ];
 
 const FlatListHome = () => {
