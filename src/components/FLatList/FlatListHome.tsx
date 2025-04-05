@@ -11,6 +11,9 @@ const Pages = [
   { id: '2', title: 'Section List', path: 'SectionList' },
   { id: '3', title: 'Pressable Demo', path: 'PressableDemo' },
   { id: '4', title: 'Modal Demo', path: 'ModalDemo' },
+  { id: '5', title: 'Top To Refresh', path: 'TopToRefresh' },
+  { id: '6', title: 'Theme Screen', path: 'ThemeScreen' },
+ 
 ];
 
 const FlatListHome = () => {

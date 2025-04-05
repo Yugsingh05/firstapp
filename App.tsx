@@ -9,15 +9,18 @@ import React from 'react';
 // import Todo from './src/components/Todo';
 // import { StackNavigator } from './src/components/StackNavigator/main';
 import FlatListDemo from './src/components/FLatList/main';
+import { ThemeProvider } from './src/components/FLatList/ThemeContext';
 
 
 function App(): React.JSX.Element {
 
 
   return (
+    <ThemeProvider>
  <NavigationContainer>
   <FlatListDemo/>
  </NavigationContainer>
+ </ThemeProvider>
   );
 }
 
