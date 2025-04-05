@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-export const FlatListDetails = () => {
+export const FlatListDetails : React.FC = () => {
   const FLAT_DATA = Array.from({ length: 20 }, (_, i) => ({
     id: i.toString(), // Ensure it's a string for keyExtractor
     title: `Item ${i + 1}`,
