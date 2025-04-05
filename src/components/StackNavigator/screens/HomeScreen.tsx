@@ -14,6 +14,7 @@ export const HomeScreen:React.FC = () => {
     <Text style={styles.text}>HomeScreen</Text>
     <Button title='Go to RouterDemo' onPress={() => navigate.navigate('StackDemo')}/>
       <Button title='Go to TabDemo' onPress={() => navigate.navigate('TabDemo')}/>
+        <Button title='Go to DrawerDemo' onPress={() => navigate.navigate('DrawerDemo')}/>
 </View>
   )
 }

@@ -1,3 +1,8 @@
+import 'react-native-reanimated'; // 👈 first!
+import 'react-native-gesture-handler'; // 👈 second!
+
+
+
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 // import { Text, View } from 'react-native';
