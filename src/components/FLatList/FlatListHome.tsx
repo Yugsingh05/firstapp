@@ -13,6 +13,9 @@ const Pages = [
   { id: '4', title: 'Modal Demo', path: 'ModalDemo' },
   { id: '5', title: 'Top To Refresh', path: 'TopToRefresh' },
   { id: '6', title: 'Theme Screen', path: 'ThemeScreen' },
+  { id: '7', title: 'Animated Demo', path: 'AnimatedDemo' },
+  { id: '8', title: 'Combined Animated', path: 'CombinedAnimate' },
+  { id: '9', title: 'Gesture Animated', path: 'GuestureAnimate' },
  
 ];
 

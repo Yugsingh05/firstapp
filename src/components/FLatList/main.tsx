@@ -7,6 +7,9 @@ import PressableDemo from '../Pressable'
 import ModalDemo from '../Modal'
 import TopToRefresh from './TopToRefresh'
 import ThemeScreen from './ThemeScreen'
+import AnimatedDemo from '../Animated/demo'
+import CombinedAnimate from '../Animated/CombinedAnimate'
+import GeastureAnimate from '../Animated/geastureAnimate'
 
 export type FlatListNavigationProps = {
     Home : undefined,
@@ -15,7 +18,10 @@ export type FlatListNavigationProps = {
     PressableDemo : undefined,
     ModalDemo : undefined,
     TopToRefresh : undefined,
-    ThemeScreen : undefined
+    ThemeScreen : undefined,
+    AnimatedDemo : undefined,
+    CombinedAnimate : undefined,
+    GuestureAnimate : undefined,
 }
 
 const Stack = createStackNavigator<FlatListNavigationProps>();
@@ -31,6 +37,9 @@ const FlatListDemo = () => {
         <Stack.Screen name="ModalDemo" component={ModalDemo} />
         <Stack.Screen name="TopToRefresh" component={TopToRefresh} />
         <Stack.Screen name="ThemeScreen" component={ThemeScreen} />
+        <Stack.Screen name="AnimatedDemo" component={AnimatedDemo} />
+        <Stack.Screen name="CombinedAnimate" component={CombinedAnimate} />
+        <Stack.Screen name="GuestureAnimate" component={GeastureAnimate} />
     </Stack.Navigator>
   )
 }
