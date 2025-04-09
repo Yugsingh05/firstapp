@@ -10,6 +10,7 @@ import ThemeScreen from './ThemeScreen'
 import AnimatedDemo from '../Animated/demo'
 import CombinedAnimate from '../Animated/CombinedAnimate'
 import GeastureAnimate from '../Animated/geastureAnimate'
+import ReAnimated1 from '../Animated/ReAnimated1'
 
 export type FlatListNavigationProps = {
     Home : undefined,
@@ -22,6 +23,7 @@ export type FlatListNavigationProps = {
     AnimatedDemo : undefined,
     CombinedAnimate : undefined,
     GuestureAnimate : undefined,
+    ReAnimate: undefined,
 }
 
 const Stack = createStackNavigator<FlatListNavigationProps>();
@@ -40,6 +42,7 @@ const FlatListDemo = () => {
         <Stack.Screen name="AnimatedDemo" component={AnimatedDemo} />
         <Stack.Screen name="CombinedAnimate" component={CombinedAnimate} />
         <Stack.Screen name="GuestureAnimate" component={GeastureAnimate} />
+        <Stack.Screen name="ReAnimate" component={ReAnimated1} />
     </Stack.Navigator>
   )
 }

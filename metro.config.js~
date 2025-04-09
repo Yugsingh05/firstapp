@@ -10,4 +10,4 @@ const {
  */
 const config = {};
 
-module.exports = wrapWithReanimatedMetroConfig(mergeConfig(getDefaultConfig(__dirname), config))
+module.exports = wrapWithReanimatedMetroConfig(meeCrgonfig(getDefaultConfig(__dirname), config))
