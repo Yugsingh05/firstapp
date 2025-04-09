@@ -11,6 +11,7 @@ import AnimatedDemo from '../Animated/demo'
 import CombinedAnimate from '../Animated/CombinedAnimate'
 import GeastureAnimate from '../Animated/geastureAnimate'
 import ReAnimated1 from '../Animated/ReAnimated1'
+import { ReAnimatedGuesture } from '../Animated/ReAnimatedGuesture'
 
 export type FlatListNavigationProps = {
     Home : undefined,
@@ -24,6 +25,7 @@ export type FlatListNavigationProps = {
     CombinedAnimate : undefined,
     GuestureAnimate : undefined,
     ReAnimate: undefined,
+    ReAnimatedGuesture : undefined,
 }
 
 const Stack = createStackNavigator<FlatListNavigationProps>();
@@ -43,6 +45,7 @@ const FlatListDemo = () => {
         <Stack.Screen name="CombinedAnimate" component={CombinedAnimate} />
         <Stack.Screen name="GuestureAnimate" component={GeastureAnimate} />
         <Stack.Screen name="ReAnimate" component={ReAnimated1} />
+        <Stack.Screen name="ReAnimatedGuesture" component={ReAnimatedGuesture} />
     </Stack.Navigator>
   )
 }

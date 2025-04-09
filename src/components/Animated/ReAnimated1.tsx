@@ -71,19 +71,7 @@ const ReAnimated1 : React.FC = () => {
         cancelAnimation(offset);
         cancelAnimation(rotation);
         cancelAnimation(scale);
-        offset.value = 0;
-        rotation.value = 0;
-        scale.value = 1;
-        opacity.value = 1;
-        animateRef.current?.setNativeProps({
-            style : {
-                transform : [
-                    { translateX : 0 },
-                    { rotateZ : '0deg' },
-                    { scale : 1 },
-                ]
-            }
-        })
+      
     }
 
 
