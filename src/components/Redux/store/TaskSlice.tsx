@@ -2,8 +2,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Task {
-    id : String,
-    title : String,
+    id : string,
+    title : string,
     iscompleted : Boolean
 }
 

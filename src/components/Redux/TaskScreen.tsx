@@ -52,7 +52,7 @@ const TaskScreen: React.FC = () => {
 
       <FlatList
         data={tasks}
-        keyExtractor={(item ) => item.id}
+        keyExtractor={(item) => item.id }
         renderItem={({item}) => (
           <TouchableOpacity style={[styles.taskCard, {backgroundColor: item.iscompleted ? 'green' : '#fff'}]}  onPress={() => ToggleComplet(item.id)}>
             <View style={{flex: 1}}>

@@ -10,9 +10,10 @@ import React from 'react';
 // import { StackNavigator } from './src/components/StackNavigator/main';
 // import FlatListDemo from './src/components/FLatList/main';
 import { ThemeProvider } from './src/components/FLatList/ThemeContext';
-import RootNavigator from './src/components/Redux/RootNavigator';
+// import RootNavigator from './src/components/Redux/RootNavigator';
 import { Provider } from 'react-redux';
 import { store } from './src/components/Redux/store/store';
+import Index from './src/components/FullStack/Index';
 
 
 function App(): React.JSX.Element {
@@ -22,7 +23,7 @@ function App(): React.JSX.Element {
     <Provider store={store}>
     <ThemeProvider>
  <NavigationContainer>
- <RootNavigator/>
+<Index/>
  </NavigationContainer>
  </ThemeProvider>
  </Provider>
