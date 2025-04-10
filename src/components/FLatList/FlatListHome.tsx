@@ -18,6 +18,7 @@ const Pages = [
   { id: '9', title: 'Gesture Animated', path: 'GuestureAnimate' },
   { id: '10', title: 'ReAnimated1', path: 'ReAnimate' },
   { id: '11', title: 'ReAnimated Gesture', path: 'ReAnimatedGuesture' },
+  { id: '12', title: 'Animated Form', path: 'AnimatedForm' },
  
 ];
 
